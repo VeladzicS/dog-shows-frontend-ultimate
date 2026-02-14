@@ -28,6 +28,7 @@ export default function EventSearchForm() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search events, judges, dogs..."
+          maxLength={100}
           className="w-full rounded-lg border border-gray-200 bg-white py-2 pr-3 pl-9 text-sm text-gray-700 outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
         />
       </div>

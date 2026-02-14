@@ -56,6 +56,7 @@ export default function SearchInput({
           type="text"
           placeholder={placeholder}
           defaultValue={searchParams.get(paramName) || ""}
+          maxLength={100}
           className="w-full rounded-lg border border-gray-200 py-2.5 pr-4 pl-10 text-sm transition focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
         />
       </div>
