@@ -26,11 +26,27 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const tags: string[] = (body as { tags?: string[] }).tags || [];
+  const { tags = [], revalidateAll = false } = body as {
+    tags?: string[];
+    revalidateAll?: boolean;
+  };
+
+  // revalidateAll: just revalidate the shared "all" tag
+  if (revalidateAll) {
+    revalidateTag("all", "default");
+    const response = NextResponse.json({
+      revalidated: ["all"],
+      now: Date.now(),
+    });
+    if (allowedOrigin) {
+      response.headers.set("Access-Control-Allow-Origin", allowedOrigin);
+    }
+    return response;
+  }
 
   if (!Array.isArray(tags) || tags.length === 0 || tags.length > MAX_TAGS) {
     return NextResponse.json(
-      { error: `tags must be an array of 1-${MAX_TAGS} items` },
+      { error: `Provide tags (1-${MAX_TAGS}) or set revalidateAll: true` },
       { status: 400 },
     );
   }

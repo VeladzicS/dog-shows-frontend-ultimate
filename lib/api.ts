@@ -16,12 +16,14 @@ export async function apiFetch<T>(
     });
   }
 
+  const allTags = tags ? ["all", ...tags] : ["all"];
+
   const res = await fetch(url.toString(), {
     headers: {
       Authorization: `Bearer ${API_TOKEN}`,
       Accept: "application/json",
     },
-    next: tags ? { tags } : undefined,
+    next: { tags: allTags },
   });
 
   if (!res.ok) {
