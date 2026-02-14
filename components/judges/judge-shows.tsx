@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Calendar } from "lucide-react";
 import Badge from "@/components/ui/badge";
 import Pagination from "@/components/ui/pagination";
@@ -24,9 +25,10 @@ export default function JudgeShows({ shows, meta, slug }: JudgeShowsProps) {
 
       <div className="space-y-3">
         {shows.map((show) => (
-          <div
+          <Link
             key={show.id}
-            className="flex md:items-center gap-2 md:gap-1 md:flex-row flex-col justify-between rounded-xl border border-gray-200 bg-white px-5 py-4"
+            href={`/shows/${show.id}`}
+            className="flex md:items-center gap-2 md:gap-1 md:flex-row flex-col justify-between rounded-xl border border-gray-200 bg-white px-5 py-4 transition hover:shadow-md"
           >
             <div>
               <h3 className="font-semibold text-gray-900">{show.show_name}</h3>
@@ -45,7 +47,7 @@ export default function JudgeShows({ shows, meta, slug }: JudgeShowsProps) {
               <Badge variant="primary">{show.breed}</Badge>
               <Badge variant="secondary">{show.show_type}</Badge>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

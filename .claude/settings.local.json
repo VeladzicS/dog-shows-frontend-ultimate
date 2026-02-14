@@ -15,7 +15,11 @@
       "WebFetch(domain:localhost)",
       "Bash(python3:*)",
       "Bash(node -e:*)",
-      "Bash(xargs:*)"
+      "Bash(xargs:*)",
+      "Bash(git checkout:*)",
+      "Bash(for slug in alex-clay alfred-j-ferruggiaro allen-l-odom allison-jones-pacheco amy-kessler)",
+      "Bash(do echo -n \"$slug: \")",
+      "Bash(done)"
     ]
   }
 }

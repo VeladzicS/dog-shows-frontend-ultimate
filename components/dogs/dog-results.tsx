@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Calendar } from "lucide-react";
 import Badge from "@/components/ui/badge";
 import Pagination from "@/components/ui/pagination";
@@ -24,9 +25,10 @@ export default function DogResults({ results, meta, slug }: DogResultsProps) {
 
       <div className="space-y-3">
         {results.map((result) => (
-          <div
+          <Link
             key={result.show_id}
-            className="rounded-xl border border-gray-200 bg-white px-5 py-4"
+            href={`/shows/${result.show_id}`}
+            className="block rounded-xl border border-gray-200 bg-white px-5 py-4 transition hover:shadow-md"
           >
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
@@ -79,7 +81,7 @@ export default function DogResults({ results, meta, slug }: DogResultsProps) {
                 </table>
               </div>
             )}
-          </div>
+          </Link>
         ))}
       </div>
 
