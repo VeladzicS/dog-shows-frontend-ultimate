@@ -1,0 +1,23 @@
+###
+# @name Search All
+GET {{base_url}}/search?q=golden&type=all&per_page=10
+Authorization: Bearer {{api_token}}
+Accept: application/json
+
+###
+# @name Search Shows only
+GET {{base_url}}/search?q=golden&type=shows&per_page=10
+Authorization: Bearer {{api_token}}
+Accept: application/json
+
+###
+# @name Search Judges only
+GET {{base_url}}/search?q=smith&type=judges&per_page=10
+Authorization: Bearer {{api_token}}
+Accept: application/json
+
+###
+# @name Search Dogs only
+GET {{base_url}}/search?q=dream&type=dogs&per_page=10
+Authorization: Bearer {{api_token}}
+Accept: application/json

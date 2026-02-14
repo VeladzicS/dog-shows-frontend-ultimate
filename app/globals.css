@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #09090b;
+    --primary: #512D7E;
+    --primary-foreground: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+    --color-main:#512D7E;
+    --color-mainAlt:#F0C06E;
+    --color-primary:#512D7E;
+    --color-secondary:#F0C06E;
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-primary-foreground: var(--primary-foreground);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    --font-heading: "Playfair Display", sans-serif;
+    --font-body: "Montserrat", sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-family: theme(--font-body), sans-serif;
+    padding-top: 107px;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding-top: 100.5px;
+    }
+}
+
+
+h1, h2,h3,h4 {
+    font-family: theme(--font-heading), sans-serif;
+}
+
+.container-screen {
+    width: 100%;
+    max-width: 1821px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Show result detail page */
+@layer utilities {
+    .show-result-content h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .show-result-content h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .show-result-content p {
+        margin-bottom: 0.6rem;
+        line-height: 1.8;
+        font-size: 0.95rem;
+    }
+
+    .show-result-content hr {
+        border: none;
+        border-top: 1px solid #e5e7eb;
+        margin: 2rem 0;
+    }
+
+    .show-result-content h2:first-child {
+        margin-top: 0;
+    }
 }
