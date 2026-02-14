@@ -56,9 +56,9 @@ export default function DogResults({ results, meta, slug }: DogResultsProps) {
                 <table className="w-full text-left text-sm">
                   <thead>
                     <tr className="text-xs uppercase text-gray-400">
-                      <th className="py-1 pr-4 font-medium">Class</th>
-                      <th className="py-1 pr-4 text-right font-medium">Entry</th>
-                      <th className="py-1 pr-4 text-right font-medium">Place</th>
+                      <th className="w-full py-1 pr-4 font-medium">Class</th>
+                      <th className="whitespace-nowrap py-1 pr-4 text-right font-medium">Entry</th>
+                      <th className="whitespace-nowrap py-1 text-right font-medium">Place</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -67,10 +67,10 @@ export default function DogResults({ results, meta, slug }: DogResultsProps) {
                         <td className="py-1 pr-4 text-gray-700">
                           {entry.class_name || "—"}
                         </td>
-                        <td className="py-1 pr-4 text-right text-gray-500">
+                        <td className="whitespace-nowrap py-1 pr-4 text-right text-gray-500">
                           {entry.entry_number || "—"}
                         </td>
-                        <td className="py-1 pr-4 text-right font-medium text-gray-900">
+                        <td className="whitespace-nowrap py-1 text-right font-medium text-gray-900">
                           {entry.placement || "—"}
                         </td>
                       </tr>
