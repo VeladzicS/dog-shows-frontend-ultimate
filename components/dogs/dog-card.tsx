@@ -38,7 +38,6 @@ export default function DogCard({ dog, className }: DogCardProps) {
 
           <div className="mt-2 flex flex-wrap justify-center sm:justify-start gap-1.5">
             <Badge variant="primary">{dog.breed}</Badge>
-            {dog.sex && <Badge variant="default">{dog.sex}</Badge>}
           </div>
 
           {dog.owner && (

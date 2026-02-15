@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Calendar, MapPin, User, Award, ArrowLeft } from "lucide-react";
+import { Calendar, MapPin, User, Award } from "lucide-react";
 import Badge from "@/components/ui/badge";
 import ShowEntriesTable from "@/components/events/show-entries-table";
+import BackButton from "@/components/ui/back-button";
 import type { DogShow } from "@/lib/types";
 
 interface ShowDetailProps {
@@ -11,13 +12,7 @@ interface ShowDetailProps {
 export default function ShowDetail({ show }: ShowDetailProps) {
   return (
     <div>
-      <Link
-        href="/events"
-        className="mb-6 inline-flex items-center gap-1 text-sm text-gray-500 hover:text-primary"
-      >
-        <ArrowLeft size={16} />
-        Back to events
-      </Link>
+      <BackButton className="mb-6" />
 
       <div className="mb-8 rounded-xl border border-gray-200 bg-white p-6">
         <h1 className="mb-3 text-3xl font-bold text-gray-900">

@@ -26,6 +26,31 @@ export const metadata: Metadata = {
     },
     description:
         "Comprehensive dog show results, judge profiles, and dog records — powered by ShowSight Magazine.",
+    keywords: [
+        "dog show results",
+        "AKC dog shows",
+        "conformation results",
+        "obedience results",
+        "rally results",
+        "dog show judges",
+        "breed results",
+        "best in show",
+        "ShowSight Magazine",
+    ],
+    authors: [{ name: "ShowSight Magazine" }],
+    creator: "ShowSight Magazine",
+    openGraph: {
+        type: "website",
+        siteName: "Dog Show Results | ShowSight Magazine",
+        locale: "en_US",
+    },
+    twitter: {
+        card: "summary_large_image",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function RootLayout({

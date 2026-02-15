@@ -43,7 +43,6 @@ export default function DogProfile({ dog }: DogProfileProps) {
 
             <div className="mb-4 flex flex-wrap gap-2">
               <Badge variant="primary">{dog.breed}</Badge>
-              {dog.sex && <Badge variant="default">{dog.sex}</Badge>}
             </div>
 
             <dl className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
