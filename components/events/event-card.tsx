@@ -28,9 +28,9 @@ export default function EventCard({ event, className }: EventCardProps) {
             {formatDate(event.date)}
           </span>
           {event.location && (
-            <span className="flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-gray-800">
-              <MapPin size={12} />
-              {event.location}
+            <span className="flex max-w-48 items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-gray-800">
+              <MapPin size={12} className="shrink-0" />
+              <span className="truncate">{event.location}</span>
             </span>
           )}
         </div>

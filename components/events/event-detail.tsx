@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Calendar, Trophy, ArrowLeft, Star } from "lucide-react";
+import { Calendar, Trophy, ArrowLeft, Star, MapPin } from "lucide-react";
 import ShowEntriesTable from "@/components/events/show-entries-table";
 import EventShowFilters from "@/components/events/event-show-filters";
 import EventBreedGrid from "@/components/events/event-breed-grid";
@@ -9,6 +9,7 @@ import type { EventShow, BreedStat } from "@/lib/types";
 interface EventMeta {
   name: string;
   date: string;
+  location?: string;
   show_count: number;
   total_entries: number;
 }
@@ -32,7 +33,7 @@ function ShowCard({
 }) {
   return (
     <div className="rounded-xl border border-gray-200 bg-white">
-      <div className="border-b border-gray-100 px-6 py-4">
+      <div className="border-b border-gray-100 px-2 py-4 md:px-6">
         <h2 className="text-lg font-bold text-gray-900">{show.show_name}</h2>
         <p className="text-sm text-gray-500">
           {show.breed} &middot; Judge:{" "}
@@ -100,6 +101,12 @@ export default function EventDetail({
             <Calendar size={15} />
             {event.date}
           </span>
+          {event.location && (
+            <span className="flex items-center gap-1.5">
+              <MapPin size={15} />
+              {event.location}
+            </span>
+          )}
           <span className="flex items-center gap-1.5">
             <Trophy size={15} />
             {event.show_count} {event.show_count === 1 ? "show" : "shows"}{" "}

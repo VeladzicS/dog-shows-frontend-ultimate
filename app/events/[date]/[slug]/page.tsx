@@ -106,6 +106,7 @@ export default async function EventPage({
           event={{
             name: summary.name,
             date: summary.date,
+            location: summary.location,
             show_count: summary.show_count,
             total_entries: summary.total_entries,
           }}

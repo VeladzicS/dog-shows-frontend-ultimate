@@ -33,29 +33,22 @@ export default function ShowEntriesTable({
       {Object.entries(grouped).map(([className, classEntries]) => (
         <div key={className}>
           {className !== "ungrouped" && (
-            <div className="border-t border-gray-100 bg-gray-50 px-6 py-2">
+            <div className="border-t border-gray-100 bg-gray-50 px-2 py-2 md:px-6">
               <h3 className="text-sm font-semibold text-gray-700">
                 {className}
               </h3>
             </div>
           )}
-          <table className="w-full table-fixed text-left text-sm">
-            <colgroup>
-              <col className="w-[8%]" />
-              <col className="w-[14%]" />
-              <col className="w-[30%]" />
-              <col className="hidden w-[22%] md:table-column" />
-              <col className="hidden w-[26%] lg:table-column" />
-            </colgroup>
+          <table className="w-full table-auto text-left text-sm">
             <thead>
               <tr className="border-b border-gray-100 text-xs uppercase text-gray-400">
-                <th className="px-6 py-2 font-medium">Entry</th>
-                <th className="px-6 py-2 font-medium">Place</th>
-                <th className="px-6 py-2 font-medium">Dog</th>
-                <th className="hidden px-6 py-2 font-medium md:table-cell">
+                <th className="w-6 py-2 pl-2 pr-0 font-medium md:w-8 md:pl-6 md:pr-1">Entry</th>
+                <th className="py-2 px-2 font-medium md:px-4">Place</th>
+                <th className="py-2 px-2 font-medium md:px-4">Dog</th>
+                <th className="hidden py-2 px-2 font-medium md:table-cell md:px-4">
                   Owner
                 </th>
-                <th className="hidden px-6 py-2 font-medium lg:table-cell">
+                <th className="hidden py-2 px-2 pr-4 font-medium lg:table-cell md:px-4 md:pr-6">
                   Handler / Breeder
                 </th>
               </tr>
@@ -66,19 +59,19 @@ export default function ShowEntriesTable({
                   key={`${entry.dog_name}-${i}`}
                   className="border-b border-gray-50 last:border-0"
                 >
-                  <td className="whitespace-nowrap px-6 py-2.5 text-gray-500">
+                  <td className="w-6 whitespace-nowrap py-2.5 pl-2 pr-0 text-gray-500 md:w-8 md:pl-6 md:pr-1">
                     {entry.entry_number || ""}
                   </td>
-                  <td className="whitespace-nowrap px-6 py-2.5 font-medium text-gray-900">
+                  <td className="whitespace-nowrap py-2.5 px-2 font-medium text-gray-900 md:px-4">
                     {entry.placement || ""}
                   </td>
-                  <td className="break-words px-6 py-2.5 text-gray-700">
+                  <td className="break-words py-2.5 px-2 text-gray-700 md:px-4">
                     <Highlight text={entry.dog_name} query={highlight} />
                   </td>
-                  <td className="hidden break-words px-6 py-2.5 text-gray-500 md:table-cell">
+                  <td className="hidden break-words py-2.5 px-2 text-gray-500 md:table-cell md:px-4">
                     <Highlight text={entry.owner || "—"} query={highlight} />
                   </td>
-                  <td className="hidden break-words px-6 py-2.5 text-gray-500 lg:table-cell">
+                  <td className="hidden break-words py-2.5 px-2 pr-4 text-gray-500 lg:table-cell md:px-4 md:pr-6">
                     <Highlight text={formatHandlerBreeder(entry)} query={highlight} />
                   </td>
                 </tr>
