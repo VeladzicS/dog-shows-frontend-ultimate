@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Calendar, Trophy, ArrowLeft, Star, MapPin } from "lucide-react";
+import { Calendar, Trophy, Star, MapPin } from "lucide-react";
 import ShowEntriesTable from "@/components/events/show-entries-table";
 import EventShowFilters from "@/components/events/event-show-filters";
 import EventBreedGrid from "@/components/events/event-breed-grid";
@@ -81,17 +81,7 @@ export default function EventDetail({
 
   return (
     <div>
-      {selectedBreed ? (
-        <Link
-          href={basePath}
-          className="mb-6 inline-flex items-center gap-1.5 rounded-lg bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-600 transition hover:bg-gray-200 hover:text-gray-900"
-        >
-          <ArrowLeft size={15} />
-          Back
-        </Link>
-      ) : (
-        <BackButton className="mb-6" />
-      )}
+      <BackButton className="mb-6" />
 
       <div className="mb-8">
         <h1 className="mb-3 text-3xl font-bold text-gray-900">{event.name}</h1>
