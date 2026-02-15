@@ -13,6 +13,7 @@ import type {
 export const metadata: Metadata = {
   title: "Search",
   description: "Search across dog shows, judges, and dogs.",
+  robots: { index: false, follow: true },
 };
 
 interface SearchPageProps {

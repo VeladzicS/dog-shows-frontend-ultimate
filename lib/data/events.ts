@@ -12,6 +12,7 @@ export async function getEvents(
     "/events",
     params,
     ["events"],
+    { revalidate: 60 },
   );
 }
 
@@ -24,6 +25,7 @@ export async function getEvent(
     `/events/${date}/${slug}`,
     filters,
     ["events"],
+    { revalidate: 300 },
   );
 }
 
@@ -35,5 +37,6 @@ export async function getEventSummary(
     `/events/${date}/${slug}/summary`,
     undefined,
     ["events"],
+    { revalidate: 300 },
   );
 }

@@ -4,7 +4,9 @@ import type { Judge, DogShow, PaginatedResponse } from "@/lib/types";
 export async function getJudges(
   params?: Record<string, string | number | undefined>,
 ): Promise<PaginatedResponse<Judge>> {
-  return apiFetch<PaginatedResponse<Judge>>("/judges", params, ["judges"]);
+  return apiFetch<PaginatedResponse<Judge>>("/judges", params, ["judges"], {
+    revalidate: 60,
+  });
 }
 
 export async function getJudge(slug: string): Promise<{ data: Judge }> {
@@ -12,6 +14,7 @@ export async function getJudge(slug: string): Promise<{ data: Judge }> {
     `/judges/${slug}`,
     undefined,
     [`judge-${slug}`],
+    { revalidate: 300 },
   );
 }
 
@@ -23,5 +26,6 @@ export async function getJudgeShows(
     `/judges/${slug}/shows`,
     params,
     [`judge-${slug}`],
+    { revalidate: 60 },
   );
 }

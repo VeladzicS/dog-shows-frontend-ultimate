@@ -10,6 +10,7 @@ export async function search(
     "/search",
     { q, type, per_page: perPage },
     ["search"],
+    { cache: "no-store" },
   );
 }
 
@@ -21,5 +22,6 @@ export async function searchEvents(
     "/events",
     { search: q, per_page: perPage },
     ["events"],
+    { cache: "no-store" },
   );
 }

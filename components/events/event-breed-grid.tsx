@@ -17,7 +17,7 @@ export default function EventBreedGrid({
 }: EventBreedGridProps) {
   return (
     <div className={cn("space-y-4", className)}>
-      <div className="flex flex-wrap items-center justify-between gap-3">
+      <div className="flex flex-wrap items-center gap-3">
         <h2 className="text-lg font-bold text-gray-900">
           Breeds ({breeds.length})
         </h2>

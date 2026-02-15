@@ -83,7 +83,7 @@ export default async function HomePage() {
           {/* Main content */}
           <div className="min-w-0 flex-1">
             <h2 className="mb-6 text-3xl font-bold text-gray-900">
-              All Events in {new Date().getFullYear()}
+              Latest Events
             </h2>
 
             <FilterDateRange />

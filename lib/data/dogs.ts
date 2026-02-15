@@ -4,11 +4,15 @@ import type { Dog, DogResult, PaginatedResponse } from "@/lib/types";
 export async function getDogs(
   params?: Record<string, string | number | undefined>,
 ): Promise<PaginatedResponse<Dog>> {
-  return apiFetch<PaginatedResponse<Dog>>("/dogs", params, ["dogs"]);
+  return apiFetch<PaginatedResponse<Dog>>("/dogs", params, ["dogs"], {
+    revalidate: 60,
+  });
 }
 
 export async function getDog(slug: string): Promise<{ data: Dog }> {
-  return apiFetch<{ data: Dog }>(`/dogs/${slug}`, undefined, [`dog-${slug}`]);
+  return apiFetch<{ data: Dog }>(`/dogs/${slug}`, undefined, [`dog-${slug}`], {
+    revalidate: 300,
+  });
 }
 
 export async function getDogResults(
@@ -19,5 +23,6 @@ export async function getDogResults(
     `/dogs/${slug}/results`,
     params,
     [`dog-${slug}`],
+    { revalidate: 60 },
   );
 }

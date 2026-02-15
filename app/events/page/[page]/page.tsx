@@ -72,7 +72,7 @@ export default async function AllEventsPage({ params }: AllEventsPageProps) {
               ]}
             />
             <h1 className="mb-6 text-3xl font-bold text-gray-900">
-              All Events in {new Date().getFullYear()}
+              Latest Events
             </h1>
 
             <FilterDateRange />

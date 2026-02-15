@@ -1,5 +1,4 @@
 import { getEvents } from "@/lib/data/events";
-import { getDateRange } from "@/lib/data/filters";
 import EventGridWithAds from "@/components/events/event-grid-with-ads";
 import AdSlot from "@/components/ui/ad-slot";
 import FilterDateRange from "@/components/filters/filter-date-range";
@@ -17,27 +16,13 @@ function lastDay(year: number, month: number) {
   return new Date(year, month, 0).getDate();
 }
 
+const STATIC_YEAR = "2026";
+
 export async function generateStaticParams() {
-  try {
-    const { data: dateRange } = await getDateRange();
-    const minDate = new Date(dateRange.min);
-    const maxDate = new Date(dateRange.max);
-
-    const params: { year: string; month: string }[] = [];
-    let current = new Date(minDate.getFullYear(), minDate.getMonth(), 1);
-
-    while (current <= maxDate) {
-      params.push({
-        year: String(current.getFullYear()),
-        month: String(current.getMonth() + 1).padStart(2, "0"),
-      });
-      current.setMonth(current.getMonth() + 1);
-    }
-
-    return params;
-  } catch {
-    return [];
-  }
+  return Array.from({ length: 12 }, (_, i) => ({
+    year: STATIC_YEAR,
+    month: String(i + 1).padStart(2, "0"),
+  }));
 }
 
 export async function generateMetadata({ params }: MonthPageProps) {

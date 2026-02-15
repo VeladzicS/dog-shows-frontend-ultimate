@@ -25,7 +25,7 @@ export default function EventBreedSelect({
           router.push(`${basePath}?breed=${encodeURIComponent(opt.value)}`);
         }
       }}
-      placeholder="Jump to breed..."
+      placeholder="Search breeds..."
       isClearable
       classNames={{
         control: (state) =>

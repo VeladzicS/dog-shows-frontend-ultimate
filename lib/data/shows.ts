@@ -8,6 +8,7 @@ export async function getShows(
     "/dog-shows",
     params,
     ["dog-shows"],
+    { revalidate: 60 },
   );
 }
 
@@ -16,6 +17,7 @@ export async function getShow(id: number | string): Promise<{ data: DogShow }> {
     `/dog-shows/${id}`,
     undefined,
     ["dog-shows"],
+    { revalidate: 300 },
   );
 }
 
@@ -26,5 +28,6 @@ export async function getUpcomingShows(
     "/shows/upcoming",
     params,
     ["dog-shows"],
+    { revalidate: 60 },
   );
 }
