@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import Card from "@/components/ui/card";
-import Badge from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import type { Judge } from "@/lib/types";
 
@@ -31,20 +30,6 @@ export default function JudgeCard({ judge, className }: JudgeCardProps) {
         <div className="min-w-0">
           <h3 className="text-lg font-bold text-gray-900">{judge.name}</h3>
 
-          {judge.specialties && judge.specialties.length > 0 && (
-            <div className="mt-2 flex flex-wrap gap-1">
-              {judge.specialties.slice(0, 3).map((s) => (
-                <Badge key={s} variant="primary">
-                  {s}
-                </Badge>
-              ))}
-              {judge.specialties.length > 3 && (
-                <Badge variant="default">
-                  +{judge.specialties.length - 3}
-                </Badge>
-              )}
-            </div>
-          )}
         </div>
       </Card>
     </Link>

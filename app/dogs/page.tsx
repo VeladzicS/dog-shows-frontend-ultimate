@@ -3,6 +3,7 @@ import { getDogs } from "@/lib/data/dogs";
 import { getBreeds } from "@/lib/data/filters";
 import DogCard from "@/components/dogs/dog-card";
 import DogListFilters from "@/components/dogs/dog-list-filters";
+import { FilterBar } from "@/components/filters";
 import Pagination from "@/components/ui/pagination";
 import EmptyState from "@/components/ui/empty-state";
 import type { Metadata } from "next";
@@ -55,31 +56,35 @@ export default async function DogsPage({ searchParams }: DogsPageProps) {
         <h1 className="mb-6 text-3xl font-bold text-gray-900">Dogs</h1>
 
         <Suspense>
-          <DogListFilters breeds={breeds} />
+          <FilterBar>
+            <DogListFilters breeds={breeds} />
+
+            <FilterBar.Results>
+              {dogs.length === 0 ? (
+                <EmptyState />
+              ) : (
+                <>
+                  <p className="mt-6 mb-4 text-sm text-gray-500">
+                    {meta.total} {meta.total === 1 ? "dog" : "dogs"} found
+                  </p>
+
+                  <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                    {dogs.map((dog) => (
+                      <DogCard key={dog.id} dog={dog} />
+                    ))}
+                  </div>
+
+                  <Pagination
+                    meta={meta}
+                    baseUrl="/dogs"
+                    searchParams={params}
+                    className="mt-10"
+                  />
+                </>
+              )}
+            </FilterBar.Results>
+          </FilterBar>
         </Suspense>
-
-        {dogs.length === 0 ? (
-          <EmptyState />
-        ) : (
-          <>
-            <p className="mt-6 mb-4 text-sm text-gray-500">
-              {meta.total} {meta.total === 1 ? "dog" : "dogs"} found
-            </p>
-
-            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-              {dogs.map((dog) => (
-                <DogCard key={dog.id} dog={dog} />
-              ))}
-            </div>
-
-            <Pagination
-              meta={meta}
-              baseUrl="/dogs"
-              searchParams={params}
-              className="mt-10"
-            />
-          </>
-        )}
       </div>
     </div>
   );

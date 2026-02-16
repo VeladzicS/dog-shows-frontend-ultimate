@@ -8,13 +8,13 @@ interface JudgeListFiltersProps {
 
 export default function JudgeListFilters({ breeds }: JudgeListFiltersProps) {
   return (
-    <FilterBar>
+    <FilterBar.Controls>
       <FilterBar.Search placeholder="Search judges..." />
       <FilterBar.Select
         paramName="specialty"
         placeholder="All Specialties"
         options={breeds}
       />
-    </FilterBar>
+    </FilterBar.Controls>
   );
 }

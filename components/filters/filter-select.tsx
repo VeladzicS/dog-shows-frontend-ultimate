@@ -38,7 +38,7 @@ export default function FilterSelect({
           `!text-sm ${state.isSelected ? "!bg-[var(--color-primary)] !text-white" : state.isFocused ? "!bg-gray-100" : ""}`,
         placeholder: () => "!text-gray-400 !text-sm",
         singleValue: () => "!text-sm",
-        input: () => "!text-sm",
+        input: () => "!text-base sm:!text-sm",
       }}
       unstyled={false}
     />

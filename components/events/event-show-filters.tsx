@@ -49,7 +49,7 @@ export default function EventShowFilters() {
           placeholder="Search dogs, owners, judges..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full rounded-lg border border-gray-200 py-2.5 pr-10 pl-10 text-sm transition focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+          className="w-full rounded-lg border border-gray-200 py-2.5 pr-10 pl-10 text-base sm:text-sm transition focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
         />
         {searchQuery && (
           <button

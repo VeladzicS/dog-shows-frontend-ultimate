@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, MapPin, Mail, Phone, Globe, Trophy } from "lucide-react";
-import Badge from "@/components/ui/badge";
+import { ArrowLeft, Mail, Phone, Globe } from "lucide-react";
 import type { Judge } from "@/lib/types";
 
 interface JudgeProfileProps {
@@ -69,15 +68,6 @@ export default function JudgeProfile({ judge }: JudgeProfileProps) {
               )}
             </div>
 
-            {judge.specialties && judge.specialties.length > 0 && (
-              <div className="mb-4 flex flex-wrap gap-1.5">
-                {judge.specialties.map((s) => (
-                  <Badge key={s} variant="primary">
-                    {s}
-                  </Badge>
-                ))}
-              </div>
-            )}
 
             {judge.biography && (
               <p className="leading-relaxed text-gray-600">

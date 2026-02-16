@@ -8,13 +8,13 @@ interface DogListFiltersProps {
 
 export default function DogListFilters({ breeds }: DogListFiltersProps) {
   return (
-    <FilterBar>
+    <FilterBar.Controls>
       <FilterBar.Search placeholder="Search dogs..." />
       <FilterBar.Select
         paramName="breed"
         placeholder="All Breeds"
         options={breeds}
       />
-    </FilterBar>
+    </FilterBar.Controls>
   );
 }

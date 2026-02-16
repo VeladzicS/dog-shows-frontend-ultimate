@@ -48,7 +48,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
             placeholder="Search shows, judges, dogs..."
             paramName="q"
             baseUrl="/search"
-            className="mb-8 max-w-xl"
+            className="mb-8 sm:max-w-xl"
           />
         </Suspense>
 

@@ -57,12 +57,12 @@ export default function SearchInput({
           placeholder={placeholder}
           defaultValue={searchParams.get(paramName) || ""}
           maxLength={100}
-          className="w-full rounded-lg border border-gray-200 py-2.5 pr-4 pl-10 text-sm transition focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+          className="w-full rounded-lg border border-gray-200 py-2.5 pr-4 pl-10 text-base sm:text-sm transition focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
         />
       </div>
       <button
         type="submit"
-        className="shrink-0 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-white transition hover:bg-primary/90"
+        className="shrink-0 rounded-lg bg-primary px-5 py-2.5 text-base sm:text-sm font-medium text-white transition hover:bg-primary/90"
       >
         Search
       </button>
