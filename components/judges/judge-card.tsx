@@ -12,7 +12,7 @@ interface JudgeCardProps {
 export default function JudgeCard({ judge, className }: JudgeCardProps) {
   return (
     <Link href={`/judges/${judge.slug}`}>
-      <Card className={cn("flex gap-4", className)}>
+      <Card className={cn("flex items-center gap-4", className)}>
         {judge.profile_image_url ? (
           <Image
             src={judge.profile_image_url}

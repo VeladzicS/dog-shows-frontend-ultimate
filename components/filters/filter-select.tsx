@@ -24,23 +24,25 @@ export default function FilterSelect({
   const selected = normalized.find((o) => o.value === value) ?? null;
 
   return (
-    <Select
-      options={normalized}
-      value={selected}
-      onChange={(opt) => updateFilter(paramName, opt?.value ?? "")}
-      placeholder={placeholder}
-      isClearable
-      classNames={{
-        control: (state) =>
-          `!min-h-[38px] !w-full sm:!min-w-[200px] !rounded-lg !border-gray-200 !shadow-none ${state.isFocused ? "!border-[var(--color-primary)] !ring-1 !ring-[var(--color-primary)]" : ""}`,
-        menu: () => "!rounded-lg !border !border-gray-200 !shadow-lg !z-50",
-        option: (state) =>
-          `!text-sm ${state.isSelected ? "!bg-[var(--color-primary)] !text-white" : state.isFocused ? "!bg-gray-100" : ""}`,
-        placeholder: () => "!text-gray-400 !text-sm",
-        singleValue: () => "!text-sm",
-        input: () => "!text-base sm:!text-sm",
-      }}
-      unstyled={false}
-    />
+    <div className="w-full sm:w-[300px]">
+      <Select
+        options={normalized}
+        value={selected}
+        onChange={(opt) => updateFilter(paramName, opt?.value ?? "")}
+        placeholder={placeholder}
+        isClearable
+        classNames={{
+          control: (state) =>
+            `!min-h-[42px] !rounded-lg !border-gray-200 !shadow-none ${state.isFocused ? "!border-[var(--color-primary)] !ring-1 !ring-[var(--color-primary)]" : ""}`,
+          menu: () => "!rounded-lg !border !border-gray-200 !shadow-lg !z-50",
+          option: (state) =>
+            `!text-sm ${state.isSelected ? "!bg-[var(--color-primary)] !text-white" : state.isFocused ? "!bg-gray-100" : ""}`,
+          placeholder: () => "!text-gray-400 !text-sm",
+          singleValue: () => "!text-sm",
+          input: () => "!text-base sm:!text-sm",
+        }}
+        unstyled={false}
+      />
+    </div>
   );
 }
