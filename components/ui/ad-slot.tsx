@@ -9,9 +9,9 @@ interface AdSlotProps {
 }
 
 const bannerImages = [
-  { src: "/ads/Cashin.png", alt: "Cashin", width: 728, height: 90 },
-  { src: "/ads/FRISCHMANN.png", alt: "Frischmann", width: 728, height: 90 },
-  { src: "/ads/Tzanis.png", alt: "Tzanis", width: 728, height: 90 },
+  { src: "/sponsors/Cashin.png", alt: "Cashin", width: 728, height: 90 },
+  { src: "/sponsors/FRISCHMANN.png", alt: "Frischmann", width: 728, height: 90 },
+  { src: "/sponsors/Tzanis.png", alt: "Tzanis", width: 728, height: 90 },
 ];
 
 function getBannerImage() {
@@ -20,7 +20,7 @@ function getBannerImage() {
 
 export default function AdSlot({ variant, className }: AdSlotProps) {
   const banner = variant === "sidebar"
-    ? { src: "/ads/sidebar.jpg", alt: "Sidebar", width: 200, height: 600 }
+    ? { src: "/sponsors/sidebar.jpg", alt: "Sidebar", width: 200, height: 600 }
     : getBannerImage();
 
   return (

@@ -22,17 +22,13 @@ export async function generateMetadata({
   params,
 }: JudgePageProps): Promise<Metadata> {
   const { slug } = await params;
-  try {
-    const { data: judge } = await getJudge(slug);
-    return {
-      title: `${judge.name} | Dog Show Results`,
-      description: judge.biography
-        ? judge.biography.slice(0, 160)
-        : `Judge profile for ${judge.name}.`,
-    };
-  } catch {
-    return { title: "Judge | Dog Show Results" };
-  }
+  const name = slug
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+  return {
+    title: `${name} | Dog Show Results`,
+    description: `Judge profile for ${name}.`,
+  };
 }
 
 export default async function JudgePage({ params }: JudgePageProps) {

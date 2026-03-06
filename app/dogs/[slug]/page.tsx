@@ -22,17 +22,13 @@ export async function generateMetadata({
   params,
 }: DogPageProps): Promise<Metadata> {
   const { slug } = await params;
-  try {
-    const { data: dog } = await getDog(slug);
-    return {
-      title: `${dog.name} | Dog Show Results`,
-      description: dog.biography
-        ? dog.biography.slice(0, 160)
-        : `${dog.name} — ${dog.breed} show dog profile and results.`,
-    };
-  } catch {
-    return { title: "Dog | Dog Show Results" };
-  }
+  const name = slug
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+  return {
+    title: `${name} | Dog Show Results`,
+    description: `${name} — show dog profile and results.`,
+  };
 }
 
 export default async function DogPage({ params }: DogPageProps) {

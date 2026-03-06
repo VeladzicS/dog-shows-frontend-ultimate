@@ -12,15 +12,9 @@ export async function generateMetadata({
   params,
 }: ShowPageProps): Promise<Metadata> {
   const { id } = await params;
-  try {
-    const { data: show } = await getShow(id);
-    return {
-      title: `${show.show_name} | Dog Show Results`,
-      description: `${show.show_name} — ${show.breed} ${show.show_type} judged by ${show.judge} in ${show.location}.`,
-    };
-  } catch {
-    return { title: "Show | Dog Show Results" };
-  }
+  return {
+    title: `Show #${id} | Dog Show Results`,
+  };
 }
 
 export default async function ShowPage({ params }: ShowPageProps) {
