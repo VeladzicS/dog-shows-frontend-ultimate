@@ -3,6 +3,7 @@ export interface ShowEntry {
   placement?: string;
   entry_number?: string;
   dog_name: string;
+  dog_slug?: string;
   registration?: string;
   sex?: string;
   owner?: string;
@@ -12,6 +13,8 @@ export interface ShowEntry {
   sire_dam?: string;
   breeder?: string;
   birth_date?: string;
+  dog_image_url?: string;
+  dog_gallery?: { url: string; caption?: string }[];
 }
 
 export interface DogShow {

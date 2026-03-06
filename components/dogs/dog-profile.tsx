@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import Badge from "@/components/ui/badge";
+import BackButton from "@/components/ui/back-button";
 import type { Dog } from "@/lib/types";
 
 interface DogProfileProps {
@@ -11,13 +11,7 @@ interface DogProfileProps {
 export default function DogProfile({ dog }: DogProfileProps) {
   return (
     <div className="mb-10">
-      <Link
-        href="/dogs"
-        className="mb-6 inline-flex items-center gap-1 text-sm text-gray-500 hover:text-primary"
-      >
-        <ArrowLeft size={16} />
-        Back to dogs
-      </Link>
+      <BackButton className="mb-6" />
 
       <div className="rounded-xl border border-gray-200 bg-white p-6">
         <div className="flex flex-col gap-6 md:flex-row ">
@@ -106,6 +100,7 @@ export default function DogProfile({ dog }: DogProfileProps) {
           </div>
         </div>
 
+        {/* Gallery - temporarily disabled
         {dog.gallery && dog.gallery.length > 0 && (
           <div className="mt-8">
             <h2 className="mb-4 text-xl font-bold text-gray-900">Gallery</h2>
@@ -127,6 +122,7 @@ export default function DogProfile({ dog }: DogProfileProps) {
             </div>
           </div>
         )}
+        */}
       </div>
     </div>
   );

@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "**.showsightmagazine.com",
       },
+      {
+        protocol: "https",
+        hostname: "showresults.fsn1.your-objectstorage.com",
+      },
     ],
   },
   async headers() {

@@ -1,6 +1,8 @@
 import { type ReactNode } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { ShowEntry } from "@/lib/types";
+import DogImageSlideshow from "@/components/ui/dog-image-slideshow";
 
 interface ShowEntriesTableProps {
   entries: ShowEntry[];
@@ -66,7 +68,7 @@ export default function ShowEntriesTable({
                     {entry.placement || ""}
                   </td>
                   <td className="break-words py-2.5 px-2 text-gray-700 md:px-4">
-                    <Highlight text={entry.dog_name} query={highlight} />
+                    <DogNameCell entry={entry} highlight={highlight} />
                   </td>
                   <td className="hidden break-words py-2.5 px-2 text-gray-500 md:table-cell md:px-4">
                     <Highlight text={entry.owner || "—"} query={highlight} />
@@ -80,6 +82,33 @@ export default function ShowEntriesTable({
           </table>
         </div>
       ))}
+    </div>
+  );
+}
+
+function getEntryImages(entry: ShowEntry): { url: string; caption?: string }[] {
+  const images: { url: string; caption?: string }[] = [];
+  if (entry.dog_image_url) images.push({ url: entry.dog_image_url });
+  if (entry.dog_gallery) images.push(...entry.dog_gallery);
+  return images;
+}
+
+function DogNameCell({ entry, highlight }: { entry: ShowEntry; highlight?: string }) {
+  const images = getEntryImages(entry);
+  const nameEl = entry.dog_slug ? (
+    <Link href={`/dogs/${entry.dog_slug}`} className="text-primary hover:underline">
+      <Highlight text={entry.dog_name} query={highlight} />
+    </Link>
+  ) : (
+    <Highlight text={entry.dog_name} query={highlight} />
+  );
+
+  if (images.length === 0) return nameEl;
+
+  return (
+    <div className="flex flex-col gap-1.5 py-1">
+      <DogImageSlideshow images={images} name={entry.dog_name} />
+      {nameEl}
     </div>
   );
 }

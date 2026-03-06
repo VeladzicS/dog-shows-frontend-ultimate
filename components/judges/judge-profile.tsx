@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft, Mail, Phone, Globe } from "lucide-react";
+import { Mail, Phone, Globe } from "lucide-react";
+import BackButton from "@/components/ui/back-button";
 import type { Judge } from "@/lib/types";
 
 interface JudgeProfileProps {
@@ -10,16 +10,10 @@ interface JudgeProfileProps {
 export default function JudgeProfile({ judge }: JudgeProfileProps) {
   return (
     <div className="mb-10">
-      <Link
-        href="/judges"
-        className="mb-6 inline-flex items-center gap-1 text-sm text-gray-500 hover:text-primary"
-      >
-        <ArrowLeft size={16} />
-        Back to judges
-      </Link>
+      <BackButton className="mb-6" />
 
       <div className="rounded-xl border border-gray-200 bg-white p-6">
-        <div className="flex flex-col gap-6 sm:flex-row">
+        <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center">
           {judge.profile_image_url ? (
             <Image
               src={judge.profile_image_url}

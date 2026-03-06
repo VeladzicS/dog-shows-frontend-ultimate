@@ -59,6 +59,20 @@ function ShowCard({
           No entry data available for this show.
         </p>
       )}
+
+      {process.env.NODE_ENV === "development" && show.source_url && (
+        <div className="border-t border-dashed border-gray-200 px-6 py-2 text-xs text-gray-400">
+          Source:{" "}
+          <a
+            href={show.source_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline break-all"
+          >
+            {show.source_url}
+          </a>
+        </div>
+      )}
     </div>
   );
 }
