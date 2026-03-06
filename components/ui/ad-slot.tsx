@@ -8,29 +8,20 @@ interface AdSlotProps {
   className?: string;
 }
 
-const config: Record<AdVariant, { src: string; alt: string; width: number; height: number }> = {
-  leaderboard: {
-    src: "/ads/leaderboard.png",
-    alt: "Advertisement",
-    width: 728,
-    height: 90,
-  },
-  sidebar: {
-    src: "/ads/sidebar.jpg",
-    alt: "Advertisement",
-    width: 200,
-    height: 600,
-  },
-  inline: {
-    src: "/ads/leaderboard.png",
-    alt: "Advertisement",
-    width: 728,
-    height: 90,
-  },
-};
+const bannerImages = [
+  { src: "/ads/Cashin.png", alt: "Cashin", width: 728, height: 90 },
+  { src: "/ads/FRISCHMANN.png", alt: "Frischmann", width: 728, height: 90 },
+  { src: "/ads/Tzanis.png", alt: "Tzanis", width: 728, height: 90 },
+];
+
+function getBannerImage() {
+  return bannerImages[Math.floor(Math.random() * bannerImages.length)];
+}
 
 export default function AdSlot({ variant, className }: AdSlotProps) {
-  const { src, alt, width, height } = config[variant];
+  const banner = variant === "sidebar"
+    ? { src: "/ads/sidebar.jpg", alt: "Sidebar", width: 200, height: 600 }
+    : getBannerImage();
 
   return (
     <div
@@ -43,10 +34,10 @@ export default function AdSlot({ variant, className }: AdSlotProps) {
       )}
     >
       <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
+        src={banner.src}
+        alt={banner.alt}
+        width={banner.width}
+        height={banner.height}
         className="max-w-full h-auto"
         unoptimized
       />

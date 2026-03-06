@@ -12,7 +12,7 @@ interface DogCardProps {
 
 export default function DogCard({ dog, className }: DogCardProps) {
   return (
-    <Link href={`/dogs/${dog.slug}`} className="block">
+    <Link href={`/dogs/${dog.slug}`} prefetch={false} className="block">
       <Card className={cn("flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-4", className)}>
         {dog.main_image_url ? (
           <Image

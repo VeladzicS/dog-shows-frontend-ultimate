@@ -88,7 +88,7 @@ export default function ShowEntriesTable({
 
 function getEntryImages(entry: ShowEntry): { url: string; caption?: string }[] {
   const images: { url: string; caption?: string }[] = [];
-  if (entry.dog_image_url) images.push({ url: entry.dog_image_url });
+  // main image (dog_image_url) is only for avatar/dog page, not show results
   if (entry.dog_gallery) images.push(...entry.dog_gallery);
   return images;
 }
@@ -96,7 +96,7 @@ function getEntryImages(entry: ShowEntry): { url: string; caption?: string }[] {
 function DogNameCell({ entry, highlight }: { entry: ShowEntry; highlight?: string }) {
   const images = getEntryImages(entry);
   const nameEl = entry.dog_slug ? (
-    <Link href={`/dogs/${entry.dog_slug}`} className="text-primary hover:underline">
+    <Link href={`/dogs/${entry.dog_slug}`} prefetch={false} className="text-primary hover:underline">
       <Highlight text={entry.dog_name} query={highlight} />
     </Link>
   ) : (

@@ -20,7 +20,7 @@ function formatDate(dateStr: string) {
 
 export default function EventCard({ event, className }: EventCardProps) {
   return (
-    <Link href={`/events/${event.date}/${event.slug}`}>
+    <Link href={`/events/${event.date}/${event.slug}`} prefetch={false}>
       <Card className={cn("relative h-full", className)}>
         <div className="absolute top-4 right-4 flex flex-col items-end gap-1.5">
           <span className="flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white">
