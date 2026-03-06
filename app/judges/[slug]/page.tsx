@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getJudge, getJudgeShows, getJudges } from "@/lib/data/judges";
+import { getJudge, getJudgeShows } from "@/lib/data/judges";
 import JudgeProfile from "@/components/judges/judge-profile";
 import JudgeShows from "@/components/judges/judge-shows";
 import PageHeader from "@/components/ui/page-header";
@@ -7,15 +7,6 @@ import type { Metadata } from "next";
 
 interface JudgePageProps {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  try {
-    const res = await getJudges({ per_page: 100 });
-    return res.data.map((judge) => ({ slug: judge.slug }));
-  } catch {
-    return [];
-  }
 }
 
 export async function generateMetadata({

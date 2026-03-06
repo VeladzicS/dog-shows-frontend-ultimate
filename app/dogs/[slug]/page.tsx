@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getDog, getDogResults, getDogs } from "@/lib/data/dogs";
+import { getDog, getDogResults } from "@/lib/data/dogs";
 import DogProfile from "@/components/dogs/dog-profile";
 import DogResults from "@/components/dogs/dog-results";
 import PageHeader from "@/components/ui/page-header";
@@ -7,15 +7,6 @@ import type { Metadata } from "next";
 
 interface DogPageProps {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  try {
-    const res = await getDogs({ per_page: 100 });
-    return res.data.map((dog) => ({ slug: dog.slug }));
-  } catch {
-    return [];
-  }
 }
 
 export async function generateMetadata({
