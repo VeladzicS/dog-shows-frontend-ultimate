@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getEvent, getEventSummary, getEvents } from "@/lib/data/events";
+import { getEvent, getEventSummary } from "@/lib/data/events";
 import EventDetail from "@/components/events/event-detail";
 import PageHeader from "@/components/ui/page-header";
 import type { Metadata } from "next";
@@ -26,31 +26,17 @@ interface EventPageProps {
   searchParams: Promise<{ breed?: string; search?: string }>;
 }
 
-export async function generateStaticParams() {
-  try {
-    const res = await getEvents({ per_page: 100 });
-    return res.data.map((event) => ({
-      date: event.date,
-      slug: event.slug,
-    }));
-  } catch {
-    return [];
-  }
-}
-
 export async function generateMetadata({
   params,
 }: EventPageProps): Promise<Metadata> {
-  const { date, slug } = await params;
-  try {
-    const { data: summary } = await getEventSummary(date, slug);
-    return {
-      title: `${summary.name} | Dog Show Results`,
-      description: `${summary.name} in ${summary.location} — ${summary.show_count} shows, ${summary.total_entries} entries.`,
-    };
-  } catch {
-    return { title: "Event | Dog Show Results" };
-  }
+  const { slug } = await params;
+  const name = slug
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+  return {
+    title: `${name} | Dog Show Results`,
+    description: `${name} — dog show event results.`,
+  };
 }
 
 export default async function EventPage({
