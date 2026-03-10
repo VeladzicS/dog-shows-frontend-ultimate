@@ -40,12 +40,12 @@ export default async function AllEventsPage({ params }: AllEventsPageProps) {
   let meta: PaginationMeta = {
     current_page: pageNum,
     last_page: 1,
-    per_page: 18,
+    per_page: 36,
     total: 0,
   };
 
   try {
-    const eventsRes = await getEvents({ page: pageNum, per_page: 18 });
+    const eventsRes = await getEvents({ page: pageNum, per_page: 36 });
     events = eventsRes.data;
     meta = eventsRes.meta;
   } catch {

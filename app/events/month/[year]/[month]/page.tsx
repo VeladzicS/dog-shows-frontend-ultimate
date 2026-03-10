@@ -47,7 +47,7 @@ export default async function MonthPage({ params, searchParams }: MonthPageProps
   let meta: PaginationMeta = {
     current_page: 1,
     last_page: 1,
-    per_page: 18,
+    per_page: 36,
     total: 0,
   };
 
@@ -56,7 +56,7 @@ export default async function MonthPage({ params, searchParams }: MonthPageProps
       date_from: dateFrom,
       date_to: dateTo,
       page: sp.page,
-      per_page: 18,
+      per_page: 36,
     });
     events = eventsRes.data;
     meta = eventsRes.meta;
