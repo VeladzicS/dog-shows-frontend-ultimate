@@ -15,8 +15,8 @@ export default function EventGridWithAds({
   if (adEveryN <= 0) {
     return (
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
-        {events.map((event) => (
-          <EventCard key={`${event.date}-${event.slug}`} event={event} />
+        {events.map((event, i) => (
+          <EventCard key={`${event.slug}-${i}`} event={event} />
         ))}
       </div>
     );

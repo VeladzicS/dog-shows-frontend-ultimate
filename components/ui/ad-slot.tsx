@@ -9,18 +9,27 @@ interface AdSlotProps {
 }
 
 const bannerImages = [
-  { src: "/sponsors/Cashin.png", alt: "Cashin", width: 728, height: 90 },
-  { src: "/sponsors/FRISCHMANN.png", alt: "Frischmann", width: 728, height: 90 },
-  { src: "/sponsors/Tzanis.png", alt: "Tzanis", width: 728, height: 90 },
+  { src: "/sponsors/Ellie.png", alt: "Ellie", width: 1913, height: 281 },
+  { src: "/sponsors/Luna.png", alt: "Luna", width: 1913, height: 281 },
+  { src: "/sponsors/Patton.png", alt: "Patton", width: 1913, height: 281 },
+  { src: "/sponsors/Rikki.png", alt: "Rikki", width: 1913, height: 281 },
+  { src: "/sponsors/Sky.png", alt: "Sky", width: 1913, height: 281 },
 ];
 
+let shuffled: typeof bannerImages = [];
+let index = 0;
+
 function getBannerImage() {
-  return bannerImages[Math.floor(Math.random() * bannerImages.length)];
+  if (index >= shuffled.length) {
+    shuffled = [...bannerImages].sort(() => Math.random() - 0.5);
+    index = 0;
+  }
+  return shuffled[index++];
 }
 
 export default function AdSlot({ variant, className }: AdSlotProps) {
   const banner = variant === "sidebar"
-    ? { src: "/sponsors/sidebar.jpg", alt: "Sidebar", width: 200, height: 600 }
+    ? { src: "/sponsors/Chips.png", alt: "Chips", width: 469, height: 1875 }
     : getBannerImage();
 
   return (
@@ -38,7 +47,7 @@ export default function AdSlot({ variant, className }: AdSlotProps) {
         alt={banner.alt}
         width={banner.width}
         height={banner.height}
-        className="max-w-full h-auto"
+        style={{ width: "100%", maxWidth: banner.width, height: "auto" }}
         unoptimized
       />
     </div>

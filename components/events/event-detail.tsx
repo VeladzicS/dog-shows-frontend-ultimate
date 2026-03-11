@@ -4,6 +4,7 @@ import ShowEntriesTable from "@/components/events/show-entries-table";
 import EventShowFilters from "@/components/events/event-show-filters";
 import EventBreedGrid from "@/components/events/event-breed-grid";
 import BackButton from "@/components/ui/back-button";
+import { titleCase } from "@/lib/utils";
 import type { EventShow, BreedStat } from "@/lib/types";
 
 interface EventMeta {
@@ -98,7 +99,7 @@ export default function EventDetail({
       <BackButton className="mb-6" />
 
       <div className="mb-8">
-        <h1 className="mb-3 text-3xl font-bold text-gray-900">{event.name}</h1>
+        <h1 className="mb-3 text-3xl font-bold text-gray-900">{titleCase(event.name)}</h1>
 
         <div className="mb-4 flex flex-wrap items-center gap-4 text-sm text-gray-500">
           <span className="flex items-center gap-1.5">

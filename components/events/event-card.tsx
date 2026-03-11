@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Trophy, MapPin, Calendar } from "lucide-react";
 import Card from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { cn, titleCase } from "@/lib/utils";
 import type { DogShowEvent } from "@/lib/types";
 
 interface EventCardProps {
@@ -36,7 +36,7 @@ export default function EventCard({ event, className }: EventCardProps) {
         </div>
 
         <h3 className="mb-2 pr-48 text-lg font-bold text-gray-900">
-          {event.name}
+          {titleCase(event.name)}
         </h3>
 
         <div className="flex items-center gap-2 text-sm text-gray-500">

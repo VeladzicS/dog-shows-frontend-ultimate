@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Calendar, MapPin, Trophy, User } from "lucide-react";
 import Badge from "@/components/ui/badge";
 import EmptyState from "@/components/ui/empty-state";
+import { titleCase } from "@/lib/utils";
 import type {
   SearchResults as SearchResultsType,
   DogShowEvent,
@@ -55,7 +56,7 @@ export default function SearchResults({ results, events }: SearchResultsProps) {
                 className="flex items-center justify-between rounded-xl border border-gray-200 bg-white px-5 py-4 transition hover:shadow-md"
               >
                 <div>
-                  <h3 className="font-semibold text-gray-900">{event.name}</h3>
+                  <h3 className="font-semibold text-gray-900">{titleCase(event.name)}</h3>
                   <div className="mt-1 flex flex-wrap gap-3 text-sm text-gray-500">
                     <span className="flex items-center gap-1">
                       <Calendar size={13} />
